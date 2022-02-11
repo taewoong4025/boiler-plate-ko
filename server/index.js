@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+
 //bodyParser를 이용하여 클라이언트에 있는 정보를 받아서 사용. 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -24,6 +24,10 @@ mongoose.connect(config.mongoURI)
 
 app.get('/', (req, res) => {
   res.send('Hello World! ~ 하이루')
+})
+
+app.get('/api/hello', (req,res)=>{
+  res.send("Hello World ~ ")
 })
 
 //회원가입
@@ -103,6 +107,9 @@ app.get('/api/users/logout', auth, (req, res) => {
       })
     })
 })
+
+//서버 포트
+const port = 5000
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
