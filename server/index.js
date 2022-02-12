@@ -91,7 +91,7 @@ app.get('/api/users/auth', auth, (req, res) => {
     isAuth: true,
     email: req.user.email,
     name: req.user.name,
-    lastname: req.use.lastname,
+    lastname: req.user.lastname,
     role: req.user.role,
     image: req.user.image
   })
